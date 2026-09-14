@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Vumi Seba | অনলাইন ভূমি সেবা</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo">🏠 E-Vumi <span>Seba</span></a>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <nav id="navMenu">
+        <a href="#home">হোম</a>
+        <a href="#services">সেবাসমূহ</a>
+        <a href="#request">সেবা আবেদন</a>
+        <a href="#status">স্ট্যাটাস</a>
+        <a href="#contact">যোগাযোগ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="badge">সহজ • দ্রুত • স্বচ্ছ</p>
+          <h1>আপনার ভূমি সেবা এখন <span>অনলাইনে</span></h1>
+          <p class="hero-text">
+            জমি, দলিল, খতিয়ান ও অন্যান্য ভূমি-সংক্রান্ত সেবার জন্য আবেদন করুন
+            এবং আপনার আবেদনের অগ্রগতি অনলাইনে দেখুন।
+          </p>
+          <div class="hero-buttons">
+            <a class="btn primary" href="#request">সেবা আবেদন করুন</a>
+            <a class="btn secondary" href="#status">আবেদনের স্ট্যাটাস</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="card-icon">📑</div>
+          <h3>ডিজিটাল সেবা সহায়তা</h3>
+          <p>আপনার প্রয়োজনীয় তথ্য ও ডকুমেন্ট প্রস্তুত করে অনলাইনে সেবা অনুরোধ পাঠান।</p>
+          <div class="mini-stats">
+            <div><strong>১০+</strong><small>সেবা</small></div>
+            <div><strong>২৪/৭</strong><small>রিকোয়েস্ট</small></div>
+            <div><strong>৳</strong><small>পেমেন্ট</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-title">
+          <p class="eyebrow">OUR SERVICES</p>
+          <h2>জনপ্রিয় ভূমি সেবা</h2>
+          <p>আপনার প্রয়োজনীয় সেবা নির্বাচন করে আবেদন করুন।</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card"><div>📜</div><h3>খতিয়ান অনুসন্ধান</h3><p>খতিয়ান সংক্রান্ত তথ্য খোঁজার সহায়তা।</p><button onclick="selectService('খতিয়ান অনুসন্ধান')">আবেদন করুন →</button></article>
+          <article class="service-card"><div>🧾</div><h3>দলিল যাচাই</h3><p>দলিলের তথ্য যাচাই ও প্রয়োজনীয় সহায়তা।</p><button onclick="selectService('দলিল যাচাই')">আবেদন করুন →</button></article>
+          <article class="service-card"><div>🏡</div><h3>নামজারি সহায়তা</h3><p>নামজারি আবেদন প্রস্তুতিতে সহায়তা।</p><button onclick="selectService('নামজারি সহায়তা')">আবেদন করুন →</button></article>
+          <article class="service-card"><div>🗺️</div><h3>মৌজা/দাগ তথ্য</h3><p>মৌজা, দাগ ও জমির তথ্য সংক্রান্ত সহায়তা।</p><button onclick="selectService('মৌজা/দাগ তথ্য')">আবেদন করুন →</button></article>
+          <article class="service-card"><div>📋</div><h3>জমির কাগজপত্র</h3><p>প্রয়োজনীয় কাগজপত্রের তালিকা ও প্রস্তুতি সহায়তা।</p><button onclick="selectService('জমির কাগজপত্র')">আবেদন করুন →</button></article>
+          <article class="service-card"><div>⚖️</div><h3>ভূমি সমস্যা পরামর্শ</h3><p>ভূমি-সংক্রান্ত বিষয়ে প্রাথমিক পরামর্শ ও সহায়তা।</p><button onclick="selectService('ভূমি সমস্যা পরামর্শ')">আবেদন করুন →</button></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="request" class="section light">
+      <div class="container form-wrap">
+        <div class="section-title left">
+          <p class="eyebrow">SERVICE REQUEST</p>
+          <h2>সেবা নেওয়ার জন্য আবেদন করুন</h2>
+          <p>নিচের ফর্মটি পূরণ করে আপনার অনুরোধ জমা দিন।</p>
+        </div>
+        <form id="requestForm" class="request-form">
+          <div class="form-row">
+            <label>আপনার নাম<input id="name" required type="text" placeholder="পূর্ণ নাম"></label>
+            <label>মোবাইল নম্বর<input id="phone" required type="tel" placeholder="01XXXXXXXXX"></label>
+          </div>
+          <div class="form-row">
+            <label>ই-মেইল<input id="email" type="email" placeholder="example@email.com"></label>
+            <label>সেবা নির্বাচন
+              <select id="service" required>
+                <option value="">-- সেবা নির্বাচন করুন --</option>
+                <option>খতিয়ান অনুসন্ধান</option>
+                <option>দলিল যাচাই</option>
+                <option>নামজারি সহায়তা</option>
+                <option>মৌজা/দাগ তথ্য</option>
+                <option>জমির কাগজপত্র</option>
+                <option>ভূমি সমস্যা পরামর্শ</option>
+              </select>
+            </label>
+          </div>
+          <label>বিস্তারিত লিখুন<textarea id="details" required rows="5" placeholder="আপনার প্রয়োজন/সমস্যা বিস্তারিত লিখুন..."></textarea></label>
+          <label>ডকুমেন্ট আপলোড (ঐচ্ছিক)<input id="document" type="file" accept=".jpg,.jpeg,.png,.pdf"></label>
+          <button class="btn primary full" type="submit">আবেদন জমা দিন</button>
+          <p id="formMessage" class="form-message"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="status" class="section">
+      <div class="container status-box">
+        <div>
+          <p class="eyebrow">REQUEST STATUS</p>
+          <h2>আবেদনের স্ট্যাটাস দেখুন</h2>
+          <p>আপনার Request ID দিয়ে বর্তমান অবস্থা পরীক্ষা করুন।</p>
+        </div>
+        <form id="statusForm" class="status-form">
+          <input id="requestId" required placeholder="যেমন: EVS-123456">
+          <button class="btn primary" type="submit">চেক করুন</button>
+        </form>
+        <div id="statusResult"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section light">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">CONTACT</p>
+          <h2>সহায়তা প্রয়োজন?</h2>
+          <p>ভূমি সেবা সম্পর্কে জানতে আমাদের সাথে যোগাযোগ করুন।</p>
+        </div>
+        <div class="contact-card">
+          <p>📞 <strong>ফোন:</strong> 01XXXXXXXXX</p>
+          <p>💬 <strong>WhatsApp:</strong> 01XXXXXXXXX</p>
+          <p>✉️ <strong>Email:</strong> support@evumiseba.com</p>
+          <a class="btn whatsapp" href="https://wa.me/8801XXXXXXXXX" target="_blank">WhatsApp করুন</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer">
+      <p>© <span id="year"></span> E-Vumi Seba. All Rights Reserved.</p>
+      <p>অনলাইন ভূমি সেবা সহায়তা প্ল্যাটফর্ম</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

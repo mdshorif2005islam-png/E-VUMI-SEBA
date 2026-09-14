@@ -1,0 +1,75 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#087f5b;--dark:#12352b;--light:#f2f8f5;--text:#26352f;--muted:#6b7772;--white:#fff;--border:#dce7e2}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans Bengali","Segoe UI",Arial,sans-serif;color:var(--text);background:#fff;line-height:1.7}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+.header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 2px 12px #00000008}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:23px;font-weight:800;color:var(--dark)}
+.logo span{color:var(--primary)}
+nav{display:flex;gap:26px}
+nav a{font-weight:600;color:#40514a}
+nav a:hover{color:var(--primary)}
+.menu-btn{display:none;background:none;border:0;font-size:26px}
+.hero{background:linear-gradient(135deg,#edf9f4,#fff);padding:90px 0}
+.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:center}
+.badge,.eyebrow{display:inline-block;color:var(--primary);font-weight:800;letter-spacing:1px;font-size:13px}
+.hero h1{font-size:52px;line-height:1.2;color:var(--dark);margin:12px 0 20px}
+.hero h1 span{color:var(--primary)}
+.hero-text{font-size:18px;color:var(--muted);max-width:650px}
+.hero-buttons{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;border:0;border-radius:10px;padding:12px 21px;font-size:15px;font-weight:700;cursor:pointer;transition:.2s}
+.primary{background:var(--primary);color:#fff}
+.primary:hover{transform:translateY(-2px);filter:brightness(.95)}
+.secondary{border:1px solid var(--primary);color:var(--primary);background:#fff}
+.hero-card,.service-card,.contact-card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 12px 35px #174c3a12}
+.hero-card{padding:35px}
+.card-icon{font-size:42px}
+.hero-card h3{font-size:25px;color:var(--dark);margin:10px 0}
+.hero-card p{color:var(--muted)}
+.mini-stats{display:flex;gap:10px;margin-top:25px}
+.mini-stats div{flex:1;background:var(--light);border-radius:10px;padding:10px;text-align:center}
+.mini-stats strong{display:block;color:var(--primary);font-size:20px}
+.mini-stats small{color:var(--muted)}
+.section{padding:85px 0}
+.light{background:var(--light)}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title.left{text-align:left}
+.section-title h2,.status-box h2,.contact-grid h2{font-size:34px;color:var(--dark);margin:4px 0 8px}
+.section-title p:not(.eyebrow){color:var(--muted)}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service-card{padding:25px}
+.service-card>div{font-size:35px}
+.service-card h3{font-size:20px;color:var(--dark);margin:8px 0}
+.service-card p{color:var(--muted);min-height:55px}
+.service-card button{margin-top:14px;border:0;background:none;color:var(--primary);font-weight:800;cursor:pointer}
+.form-wrap{max-width:850px}
+.request-form{background:#fff;padding:30px;border:1px solid var(--border);border-radius:18px;box-shadow:0 10px 30px #174c3a0c}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:block;font-weight:700;margin-bottom:17px;color:var(--dark)}
+input,select,textarea{display:block;width:100%;margin-top:7px;border:1px solid #ccd9d4;border-radius:9px;padding:12px 13px;font:inherit;background:#fff;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px #087f5b12}
+.full{width:100%}
+.form-message{margin-top:14px;font-weight:700}
+.status-box{background:#fff;border:1px solid var(--border);border-radius:18px;padding:35px;box-shadow:0 10px 30px #174c3a0b}
+.status-form{display:flex;gap:12px;margin-top:22px}
+.status-form input{margin:0;flex:1}
+#statusResult{margin-top:20px}
+.result{padding:15px;border-radius:10px;background:var(--light);border-left:4px solid var(--primary)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.contact-card{padding:25px}
+.contact-card p{margin:8px 0}
+.whatsapp{margin-top:12px;background:#198754;color:#fff}
+footer{background:#102a22;color:#dce9e4;padding:22px 0}
+.footer{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:14px}
+@media(max-width:800px){
+  nav{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;padding:15px 5%;flex-direction:column;gap:10px;border-bottom:1px solid var(--border)}
+  nav.open{display:flex}.menu-btn{display:block}
+  .hero-grid,.contact-grid{grid-template-columns:1fr}.hero{padding:60px 0}.hero h1{font-size:40px}
+  .service-grid{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .service-grid{grid-template-columns:1fr}.section{padding:60px 0}.status-form{flex-direction:column}
+  .hero h1{font-size:34px}.hero-buttons .btn{width:100%;text-align:center}
+}
