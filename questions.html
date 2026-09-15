@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>প্রশ্ন ও উত্তর | E-Vumi Seba</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a href="index.html" class="logo">🏠 E-Vumi <span>Seba</span></a>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <nav id="navMenu">
+      <a href="index.html">হোম</a>
+      <a href="services.html">সেবা</a>
+      <a href="about.html">আমাদের সম্পর্কে</a>
+      <a href="reviews.html">রিভিউ</a>
+      <a href="questions.html">প্রশ্ন</a>
+      <a href="contact.html">যোগাযোগ</a>
+      <a href="status.html" class="nav-btn">🔎 স্ট্যাটাস</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+<section class="page-header">
+  <div class="container">
+    <a href="index.html" class="back-link">← হোমে ফিরুন</a>
+    <h1>❓ প্রশ্ন ও উত্তর</h1>
+    <p>যেকোনো প্রশ্ন করুন — সবাই দেখতে পারবে, উত্তরও পাবেন</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container content-narrow">
+
+    <!-- === COMPACT ASK FORM (COLLAPSIBLE) === -->
+    <details class="ask-compact" id="askBox">
+      <summary>
+        <span>💬 আপনার প্রশ্ন করুন</span>
+        <span class="summary-hint">(ক্লিক করে খুলুন)</span>
+      </summary>
+
+      <form id="questionForm" class="ask-form-compact">
+        <div class="form-row">
+          <label>নাম *
+            <input id="qName" required type="text" placeholder="আপনার নাম">
+          </label>
+          <label>স্থান
+            <input id="qLocation" type="text" placeholder="জেলা / এলাকা">
+          </label>
+        </div>
+        <label>আপনার প্রশ্ন *
+          <textarea id="qText" required rows="3" placeholder="আপনার প্রশ্ন বিস্তারিত লিখুন..."></textarea>
+        </label>
+        <button class="btn primary full" type="submit">📤 প্রশ্ন পাঠান</button>
+        <p id="qMessage" class="form-message"></p>
+      </form>
+    </details>
+
+    <!-- === QUESTIONS LIST === -->
+    <h3 class="list-title">
+      📋 সব প্রশ্ন (<span id="qCount">0</span>)
+    </h3>
+    <div id="questionsList" class="q-list">
+      <p class="loading-text">⏳ লোড হচ্ছে...</p>
+    </div>
+
+    <div class="cta-box">
+      <h3>আরও সহায়তা দরকার?</h3>
+      <p>WhatsApp-এ সরাসরি যোগাযোগ করুন</p>
+      <a href="https://wa.me/8801332052506" target="_blank" class="btn whatsapp">
+        💬 WhatsApp-এ জিজ্ঞেস করুন
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-simple">
+    <p>© <span id="year"></span> E-Vumi Seba</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/8801332052506" target="_blank" class="float-wa" title="WhatsApp">💬</a>
+
+<script src="script.js"></script>
+</body>
+</html>

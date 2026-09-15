@@ -4,7 +4,8 @@
    ============================================ */
 
 // 🔗 এখানে আপনার নতুন Web App URL বসান ⬇️
-const API_URL = https://script.google.com/macros/s/AKfycbwCHU-MjFfQbuAsg8Nx0OblKhh12mGgWtVPtXg66HjkbngYXLkMnt_9Uc2MbH0B9WRKmw/exec
+const API_URL =  'https://script.google.com/macros/s/AKfycbwCHU-MjFfQbuAsg8Nx0OblKhh12mGgWtVPtXg66HjkbngYXLkMnt_9Uc2MbH0B9WRKmw/exec';
+
 const $ = id => document.getElementById(id);
 
 /* ===== Menu Toggle ===== */
@@ -36,7 +37,7 @@ function createId(prefix){
   return prefix + "-" + Math.floor(1000 + Math.random()*9000);
 }
 
-/* ===== Escape HTML (XSS protection) ===== */
+/* ===== Escape HTML ===== */
 function escapeHtml(str){
   if(!str) return '';
   return String(str)
@@ -47,8 +48,14 @@ function escapeHtml(str){
     .replace(/'/g,'&#39;');
 }
 
+/* ===== Bengali Numbers ===== */
+function toBn(num){
+  const bn = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+  return String(num).replace(/[0-9]/g, d => bn[d]);
+}
+
 /* ============================================================
-   REQUEST FORM
+   REQUEST FORM (service.html)
    ============================================================ */
 const requestForm = $("requestForm");
 if(requestForm){
@@ -109,7 +116,7 @@ if(requestForm){
 }
 
 /* ============================================================
-   STATUS CHECK
+   STATUS CHECK (status.html)
    ============================================================ */
 const statusForm = $("statusForm");
 if(statusForm){
@@ -163,11 +170,12 @@ if(statusForm){
 }
 
 /* ============================================================
-   QUESTIONS
+   QUESTIONS (questions.html)
    ============================================================ */
 const questionForm = $("questionForm");
 if(questionForm){
   loadQuestions();
+
   questionForm.addEventListener("submit", async function(e){
     e.preventDefault();
     const btn = this.querySelector('button[type="submit"]');
@@ -179,7 +187,7 @@ if(questionForm){
       type: 'question',
       id: createId('Q'),
       name: $("qName").value.trim(),
-      location: $("qLocation").value.trim(),
+      location: $("qLocation") ? $("qLocation").value.trim() : "",
       question: $("qText").value.trim(),
       answer: "",
       date: new Date().toLocaleString("bn-BD")
@@ -197,6 +205,10 @@ if(questionForm){
       $("qMessage").style.color = "#087f5b";
       questionForm.reset();
 
+      // details বন্ধ করুন
+      const ab = $("askBox");
+      if(ab) ab.open = false;
+
       setTimeout(loadQuestions, 2000);
       setTimeout(()=> $("qMessage").textContent = '', 6000);
 
@@ -213,14 +225,14 @@ if(questionForm){
 async function loadQuestions(){
   const list = $("questionsList");
   if(!list) return;
-  list.innerHTML = '<p style="text-align:center;color:var(--muted);padding:20px;">⏳ লোড হচ্ছে...</p>';
+  list.innerHTML = '<p class="loading-text">⏳ লোড হচ্ছে...</p>';
 
   try {
     const res = await fetch(API_URL + '?action=questions');
     const data = await res.json();
 
     if(!data || data.length === 0){
-      list.innerHTML = '<p style="text-align:center;color:var(--muted);padding:20px;">এখনো কোনো প্রশ্ন করা হয়নি। আপনি প্রথম প্রশ্ন করুন!</p>';
+      list.innerHTML = '<p class="loading-text">এখনো কোনো প্রশ্ন করা হয়নি। আপনি প্রথম প্রশ্ন করুন!</p>';
       if($("qCount")) $("qCount").textContent = "0";
       return;
     }
@@ -248,22 +260,23 @@ async function loadQuestions(){
         </div>`;
     }).join('');
   } catch (err) {
-    list.innerHTML = '<p style="text-align:center;color:#c92a2a;padding:20px;">❌ লোড করা যায়নি। আবার চেষ্টা করুন।</p>';
+    list.innerHTML = '<p class="loading-text" style="color:#c92a2a;">❌ লোড করা যায়নি। আবার চেষ্টা করুন।</p>';
   }
 }
 
 /* ============================================================
-   REVIEWS
+   REVIEWS (reviews.html)
    ============================================================ */
 let selectedRating = 5;
 const starInput = $("starInput");
+
 if(starInput){
   const stars = starInput.querySelectorAll('.star');
   const ratingInput = $("rRating");
 
   function setRating(val){
     selectedRating = val;
-    ratingInput.value = val;
+    if(ratingInput) ratingInput.value = val;
     stars.forEach(s => {
       const v = parseInt(s.dataset.value);
       s.classList.toggle('active', v <= val);
@@ -284,6 +297,7 @@ if(starInput){
 const reviewForm = $("reviewForm");
 if(reviewForm){
   loadReviews();
+
   reviewForm.addEventListener("submit", async function(e){
     e.preventDefault();
     const btn = this.querySelector('button[type="submit"]');
@@ -295,7 +309,7 @@ if(reviewForm){
       type: 'review',
       id: createId('R'),
       name: $("rName").value.trim(),
-      location: $("rLocation").value.trim(),
+      location: $("rLocation") ? $("rLocation").value.trim() : "",
       rating: $("rRating").value,
       review: $("rText").value.trim(),
       date: new Date().toLocaleString("bn-BD")
@@ -310,7 +324,7 @@ if(reviewForm){
       });
 
       $("rMessage").textContent = "✅ আপনার রিভিউ পাঠানো হয়েছে! ধন্যবাদ।";
-      $("rMessage").style.color = "#fff";
+      $("rMessage").style.color = "#087f5b";
       reviewForm.reset();
       if(starInput){
         const stars = starInput.querySelectorAll('.star');
@@ -318,11 +332,16 @@ if(reviewForm){
         if($("rRating")) $("rRating").value = 5;
       }
 
+      // details বন্ধ করুন
+      const rb = $("addReviewBox");
+      if(rb) rb.open = false;
+
       setTimeout(loadReviews, 2000);
       setTimeout(()=> $("rMessage").textContent = '', 6000);
 
     } catch (err) {
       $("rMessage").textContent = "❌ সমস্যা হয়েছে।";
+      $("rMessage").style.color = "#c92a2a";
     } finally {
       btn.disabled = false;
       btn.textContent = orig;
@@ -333,17 +352,18 @@ if(reviewForm){
 async function loadReviews(){
   const list = $("reviewsList");
   if(!list) return;
-  list.innerHTML = '<p style="text-align:center;color:var(--muted);padding:20px;grid-column:1/-1;">⏳ লোড হচ্ছে...</p>';
+  list.innerHTML = '<p class="loading-text">⏳ লোড হচ্ছে...</p>';
 
   try {
     const res = await fetch(API_URL + '?action=reviews');
     const data = await res.json();
 
     if(!data || data.length === 0){
-      list.innerHTML = '<p style="text-align:center;color:var(--muted);padding:20px;grid-column:1/-1;">এখনো কোনো রিভিউ নেই। আপনি প্রথম রিভিউ দিন!</p>';
+      list.innerHTML = '<p class="loading-text">এখনো কোনো রিভিউ নেই। আপনি প্রথম রিভিউ দিন!</p>';
       if($("rCount")) $("rCount").textContent = "0";
       if($("avgRating")) $("avgRating").textContent = "০";
       if($("totalReviews")) $("totalReviews").textContent = "০";
+      if($("avgStars")) $("avgStars").textContent = "☆☆☆☆☆";
       updateRatingBars([]);
       return;
     }
@@ -381,7 +401,7 @@ async function loadReviews(){
         </div>`;
     }).join('');
   } catch (err) {
-    list.innerHTML = '<p style="text-align:center;color:#c92a2a;padding:20px;grid-column:1/-1;">❌ লোড করা যায়নি।</p>';
+    list.innerHTML = '<p class="loading-text" style="color:#c92a2a;">❌ লোড করা যায়নি।</p>';
   }
 }
 
@@ -389,10 +409,12 @@ function updateRatingBars(data){
   const container = $("ratingBars");
   if(!container) return;
   const total = data.length;
+
   if(total === 0){
     container.innerHTML = '<p style="color:var(--muted);font-size:13px;text-align:center;">এখনো কোনো রেটিং নেই</p>';
     return;
   }
+
   const counts = {5:0,4:0,3:0,2:0,1:0};
   data.forEach(r => {
     const v = Math.round(parseFloat(r.Rating) || 5);
@@ -410,11 +432,6 @@ function updateRatingBars(data){
   }).join('');
 }
 
-function toBn(num){
-  const bn = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
-  return String(num).replace(/[0-9]/g, d => bn[d]);
-}
-
-/* ===== Year ===== */
+/* ===== Year in Footer ===== */
 const yearEl = $("year");
 if(yearEl) yearEl.textContent = new Date().getFullYear();
