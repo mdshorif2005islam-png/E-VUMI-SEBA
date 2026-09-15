@@ -17,7 +17,7 @@
       <a href="services.html">সেবা</a>
       <a href="about.html">আমাদের সম্পর্কে</a>
       <a href="reviews.html">রিভিউ</a>
-      <a href="faq.html">প্রশ্ন</a>
+      <a href="questions.html">প্রশ্ন</a>
       <a href="contact.html">যোগাযোগ</a>
       <a href="status.html" class="nav-btn">🔎 স্ট্যাটাস</a>
     </nav>
@@ -30,107 +30,59 @@
   <div class="container">
     <a href="index.html" class="back-link">← হোমে ফিরুন</a>
     <h1>💬 কাস্টমার রিভিউ</h1>
-    <p>১০০০+ সন্তুষ্ট কাস্টমারের কিছু মতামত</p>
+    <p>আপনার অভিজ্ঞতা শেয়ার করুন — সবাই দেখতে পারবে</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
 
+    <!-- ADD REVIEW FORM -->
+    <div class="add-review-box">
+      <h3>⭐ আপনার রিভিউ দিন</h3>
+      <form id="reviewForm">
+        <div class="form-row">
+          <label>আপনার নাম *
+            <input id="rName" required type="text" placeholder="আপনার নাম">
+          </label>
+          <label>স্থান (ঐচ্ছিক)
+            <input id="rLocation" type="text" placeholder="জেলা / এলাকা">
+          </label>
+        </div>
+        <label>রেটিং * (তারা ক্লিক করুন)
+          <div class="star-input" id="starInput">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
+          </div>
+          <input type="hidden" id="rRating" value="5">
+        </label>
+        <label>আপনার অভিজ্ঞতা *
+          <textarea id="rText" required rows="3" placeholder="আমাদের সেবা সম্পর্কে আপনার অভিজ্ঞতা লিখুন..."></textarea>
+        </label>
+        <button class="btn primary full" type="submit">📤 রিভিউ পাঠান</button>
+        <p id="rMessage" class="form-message"></p>
+      </form>
+    </div>
+
+    <!-- SUMMARY -->
     <div class="review-summary">
       <div class="rating-big">
-        <h2>৪.৯</h2>
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p>৫০০+ রিভিউ থেকে</p>
+        <h2 id="avgRating">৪.৯</h2>
+        <div class="stars" id="avgStars">⭐⭐⭐⭐⭐</div>
+        <p><span id="totalReviews">০</span> রিভিউ থেকে</p>
       </div>
-      <div class="rating-bars">
-        <div><span>৫★</span><div class="bar"><div style="width:92%"></div></div><span>92%</span></div>
-        <div><span>৪★</span><div class="bar"><div style="width:6%"></div></div><span>6%</span></div>
-        <div><span>৩★</span><div class="bar"><div style="width:1.5%"></div></div><span>1.5%</span></div>
-        <div><span>২★</span><div class="bar"><div style="width:0.5%"></div></div><span>0.5%</span></div>
-      </div>
+      <div class="rating-bars" id="ratingBars"></div>
     </div>
 
-    <div class="review-grid">
-
-      <div class="review-card">
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p>"আমার জমির খতিয়ান দরকার ছিল জরুরি। মাত্র ১ দিনে পেয়ে গেলাম। সার্ভিস খুব ভালো। ধন্যবাদ।"</p>
-        <div class="review-author">
-          <div class="avatar">আ</div>
-          <div>
-            <strong>আব্দুল করিম</strong>
-            <small>ঢাকা</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p>"নামজারি নিয়ে অনেক দিন ধরে ঝামেলায় ছিলাম। এদের মাধ্যমে সহজেই হয়ে গেল। সৎ ও বিশ্বস্ত টিম।"</p>
-        <div class="review-author">
-          <div class="avatar">র</div>
-          <div>
-            <strong>রহিমা বেগম</strong>
-            <small>চট্টগ্রাম</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p>"খুব বিশ্বস্ত একটি টিম। প্রতিটি ধাপে জানিয়ে রাখে। আবারও নেব ইনশাআল্লাহ।"</p>
-        <div class="review-author">
-          <div class="avatar">ম</div>
-          <div>
-            <strong>মোহাম্মদ আলী</strong>
-            <small>রাজশাহী</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p>"দলিল যাচাই করতে দিয়েছিলাম। বিস্তারিত রিপোর্ট দিয়েছে। খরচ সাশ্রয়ী ছিল।"</p>
-        <div class="review-author">
-          <div class="avatar">স</div>
-          <div>
-            <strong>সালমা আক্তার</strong>
-            <small>খুলনা</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p>"গ্রামে থেকে শহরের সেবা পাব ভাবতে পারিনি। অনলাইনে সব হয়ে গেল। ধন্যবাদ E-Vumi Seba কে।"</p>
-        <div class="review-author">
-          <div class="avatar">জ</div>
-          <div>
-            <strong>জাহাঙ্গীর হোসেন</strong>
-            <small>রংপুর</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p>"সময়মতো কাজ শেষ করেছে। কোনো লুকানো খরচ নেই। যারা জমির সমস্যায় আছেন, তাদের জন্য উপযুক্ত।"</p>
-        <div class="review-author">
-          <div class="avatar">ফ</div>
-          <div>
-            <strong>ফাতেমা খাতুন</strong>
-            <small>সিলেট</small>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="cta-box">
-      <h3>আপনিও সেবা নিতে চান?</h3>
-      <p>হাজারো সন্তুষ্ট কাস্টমারের সাথে আপনিও যোগ দিন</p>
-      <a href="service.html" class="btn primary">📝 এখনই আবেদন করুন</a>
+    <!-- REVIEWS LIST -->
+    <h3 style="color:var(--primary-dark);margin:30px 0 18px;font-size:20px;">
+      📋 সব রিভিউ (<span id="rCount">0</span>)
+    </h3>
+    <div id="reviewsList" class="review-grid">
+      <p style="text-align:center;color:var(--muted);padding:20px;grid-column:1/-1;">⏳ লোড হচ্ছে...</p>
     </div>
 
   </div>
