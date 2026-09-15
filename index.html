@@ -3,142 +3,418 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Vumi Seba | অনলাইন ভূমি সেবা</title>
+  <title>E-Vumi Seba | অনলাইন ভূমি সেবা - বিশ্বস্ত ও দ্রুত</title>
+  <meta name="description" content="খতিয়ান, দলিল, নামজারি, মৌজা তথ্য — সব ভূমি সেবা অনলাইনে। ১০০০+ সন্তুষ্ট কাস্টমার। দ্রুত, নিরাপদ, বিশ্বস্ত।">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container nav">
-      <a href="#" class="logo">🏠 E-Vumi <span>Seba</span></a>
-      <button class="menu-btn" onclick="toggleMenu()">☰</button>
-      <nav id="navMenu">
-        <a href="#home">হোম</a>
-        <a href="#services">সেবাসমূহ</a>
-        <a href="#request">সেবা আবেদন</a>
-        <a href="#status">স্ট্যাটাস</a>
-        <a href="#contact">যোগাযোগ</a>
-      </nav>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="container nav">
+    <a href="#" class="logo">🏠 E-Vumi <span>Seba</span></a>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <nav id="navMenu">
+      <a href="#home">হোম</a>
+      <a href="#services">সেবা</a>
+      <a href="#why">কেন আমরা</a>
+      <a href="#reviews">রিভিউ</a>
+      <a href="#request">আবেদন</a>
+      <a href="#status">স্ট্যাটাস</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ 1. HERO ============ -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="trust-badge">
+          ⭐ <strong>৪.৯/৫</strong> • ১০০০+ সন্তুষ্ট কাস্টমার
+        </div>
+        <h1>ভূমি সেবা এখন <span>ঘরে বসেই</span>, মাত্র ২৪ ঘণ্টায়</h1>
+        <p class="hero-text">
+          খতিয়ান, দলিল, নামজারি, মৌজা তথ্য — সব সেবা অনলাইনে আবেদন করুন।
+          অভিজ্ঞ টিম, স্বচ্ছ প্রক্রিয়া, দ্রুত ডেলিভারি।
+        </p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#request">📝 এখনই আবেদন করুন</a>
+          <a class="btn secondary" href="#status">🔎 স্ট্যাটাস দেখুন</a>
+        </div>
+
+        <div class="trust-points">
+          <div>✅ ১০০% নিরাপদ</div>
+          <div>✅ দ্রুত ডেলিভারি</div>
+          <div>✅ সাশ্রয়ী মূল্য</div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="card-icon">📑</div>
+        <h3>আজকের আপডেট</h3>
+        <div class="live-stats">
+          <div><strong>১৫০+</strong><small>এই মাসে আবেদন</small></div>
+          <div><strong>৯৮%</strong><small>সফলতার হার</small></div>
+          <div><strong>২৪ ঘণ্টা</strong><small>গড় ডেলিভারি</small></div>
+        </div>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="badge">সহজ • দ্রুত • স্বচ্ছ</p>
-          <h1>আপনার ভূমি সেবা এখন <span>অনলাইনে</span></h1>
-          <p class="hero-text">
-            জমি, দলিল, খতিয়ান ও অন্যান্য ভূমি-সংক্রান্ত সেবার জন্য আবেদন করুন
-            এবং আপনার আবেদনের অগ্রগতি অনলাইনে দেখুন।
-          </p>
-          <div class="hero-buttons">
-            <a class="btn primary" href="#request">সেবা আবেদন করুন</a>
-            <a class="btn secondary" href="#status">আবেদনের স্ট্যাটাস</a>
-          </div>
-        </div>
-        <div class="hero-card">
-          <div class="card-icon">📑</div>
-          <h3>ডিজিটাল সেবা সহায়তা</h3>
-          <p>আপনার প্রয়োজনীয় তথ্য ও ডকুমেন্ট প্রস্তুত করে অনলাইনে সেবা অনুরোধ পাঠান।</p>
-          <div class="mini-stats">
-            <div><strong>১০+</strong><small>সেবা</small></div>
-            <div><strong>২৪/৭</strong><small>রিকোয়েস্ট</small></div>
-            <div><strong>৳</strong><small>পেমেন্ট</small></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="container">
-        <div class="section-title">
-          <p class="eyebrow">OUR SERVICES</p>
-          <h2>জনপ্রিয় ভূমি সেবা</h2>
-          <p>আপনার প্রয়োজনীয় সেবা নির্বাচন করে আবেদন করুন।</p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card"><div>📜</div><h3>খতিয়ান অনুসন্ধান</h3><p>খতিয়ান সংক্রান্ত তথ্য খোঁজার সহায়তা।</p><button onclick="selectService('খতিয়ান অনুসন্ধান')">আবেদন করুন →</button></article>
-          <article class="service-card"><div>🧾</div><h3>দলিল যাচাই</h3><p>দলিলের তথ্য যাচাই ও প্রয়োজনীয় সহায়তা।</p><button onclick="selectService('দলিল যাচাই')">আবেদন করুন →</button></article>
-          <article class="service-card"><div>🏡</div><h3>নামজারি সহায়তা</h3><p>নামজারি আবেদন প্রস্তুতিতে সহায়তা।</p><button onclick="selectService('নামজারি সহায়তা')">আবেদন করুন →</button></article>
-          <article class="service-card"><div>🗺️</div><h3>মৌজা/দাগ তথ্য</h3><p>মৌজা, দাগ ও জমির তথ্য সংক্রান্ত সহায়তা।</p><button onclick="selectService('মৌজা/দাগ তথ্য')">আবেদন করুন →</button></article>
-          <article class="service-card"><div>📋</div><h3>জমির কাগজপত্র</h3><p>প্রয়োজনীয় কাগজপত্রের তালিকা ও প্রস্তুতি সহায়তা।</p><button onclick="selectService('জমির কাগজপত্র')">আবেদন করুন →</button></article>
-          <article class="service-card"><div>⚖️</div><h3>ভূমি সমস্যা পরামর্শ</h3><p>ভূমি-সংক্রান্ত বিষয়ে প্রাথমিক পরামর্শ ও সহায়তা।</p><button onclick="selectService('ভূমি সমস্যা পরামর্শ')">আবেদন করুন →</button></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="request" class="section light">
-      <div class="container form-wrap">
-        <div class="section-title left">
-          <p class="eyebrow">SERVICE REQUEST</p>
-          <h2>সেবা নেওয়ার জন্য আবেদন করুন</h2>
-          <p>নিচের ফর্মটি পূরণ করে আপনার অনুরোধ জমা দিন।</p>
-        </div>
-        <form id="requestForm" class="request-form">
-          <div class="form-row">
-            <label>আপনার নাম<input id="name" required type="text" placeholder="পূর্ণ নাম"></label>
-            <label>মোবাইল নম্বর<input id="phone" required type="tel" placeholder="01XXXXXXXXX"></label>
-          </div>
-          <div class="form-row">
-            <label>ই-মেইল<input id="email" type="email" placeholder="example@email.com"></label>
-            <label>সেবা নির্বাচন
-              <select id="service" required>
-                <option value="">-- সেবা নির্বাচন করুন --</option>
-                <option>খতিয়ান অনুসন্ধান</option>
-                <option>দলিল যাচাই</option>
-                <option>নামজারি সহায়তা</option>
-                <option>মৌজা/দাগ তথ্য</option>
-                <option>জমির কাগজপত্র</option>
-                <option>ভূমি সমস্যা পরামর্শ</option>
-              </select>
-            </label>
-          </div>
-          <label>বিস্তারিত লিখুন<textarea id="details" required rows="5" placeholder="আপনার প্রয়োজন/সমস্যা বিস্তারিত লিখুন..."></textarea></label>
-          <label>ডকুমেন্ট আপলোড (ঐচ্ছিক)<input id="document" type="file" accept=".jpg,.jpeg,.png,.pdf"></label>
-          <button class="btn primary full" type="submit">আবেদন জমা দিন</button>
-          <p id="formMessage" class="form-message"></p>
-        </form>
-      </div>
-    </section>
-
-    <section id="status" class="section">
-      <div class="container status-box">
-        <div>
-          <p class="eyebrow">REQUEST STATUS</p>
-          <h2>আবেদনের স্ট্যাটাস দেখুন</h2>
-          <p>আপনার Request ID দিয়ে বর্তমান অবস্থা পরীক্ষা করুন।</p>
-        </div>
-        <form id="statusForm" class="status-form">
-          <input id="requestId" required placeholder="যেমন: EVS-123456">
-          <button class="btn primary" type="submit">চেক করুন</button>
-        </form>
-        <div id="statusResult"></div>
-      </div>
-    </section>
-
-    <section id="contact" class="section light">
-      <div class="container contact-grid">
-        <div>
-          <p class="eyebrow">CONTACT</p>
-          <h2>সহায়তা প্রয়োজন?</h2>
-          <p>ভূমি সেবা সম্পর্কে জানতে আমাদের সাথে যোগাযোগ করুন।</p>
-        </div>
-        <div class="contact-card">
-          <p>📞 <strong>ফোন:</strong> 01XXXXXXXXX</p>
-          <p>💬 <strong>WhatsApp:</strong> 01XXXXXXXXX</p>
-          <p>✉️ <strong>Email:</strong> support@evumiseba.com</p>
-          <a class="btn whatsapp" href="https://wa.me/8801XXXXXXXXX" target="_blank">WhatsApp করুন</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer">
-      <p>© <span id="year"></span> E-Vumi Seba. All Rights Reserved.</p>
-      <p>অনলাইন ভূমি সেবা সহায়তা প্ল্যাটফর্ম</p>
+  <!-- ============ 2. STATS BAR ============ -->
+  <section class="stats-bar">
+    <div class="container stats-grid">
+      <div><h3>১০০০+</h3><p>সফল আবেদন</p></div>
+      <div><h3>৫০০+</h3><p>সন্তুষ্ট কাস্টমার</p></div>
+      <div><h3>৫ বছর</h3><p>অভিজ্ঞতা</p></div>
+      <div><h3>৪.৯★</h3><p>কাস্টমার রেটিং</p></div>
     </div>
-  </footer>
-  <script src="script.js"></script>
+  </section>
+
+  <!-- ============ 3. SERVICES ============ -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">আমাদের সেবা</p>
+        <h2>যে সেবাগুলো আমরা দিই</h2>
+        <p>প্রতিটি সেবা অভিজ্ঞ টিম দ্বারা সম্পন্ন করা হয়</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="s-icon">📜</div>
+          <h3>খতিয়ান অনুসন্ধান</h3>
+          <p>আপনার জমির খতিয়ান সংক্রান্ত সব তথ্য ২৪ ঘণ্টায়।</p>
+          <button onclick="selectService('খতিয়ান অনুসন্ধান')">আবেদন →</button>
+        </article>
+        <article class="service-card">
+          <div class="s-icon">🧾</div>
+          <h3>দলিল যাচাই</h3>
+          <p>দলিলের সঠিকতা ও তথ্য যাচাই করা হয়।</p>
+          <button onclick="selectService('দলিল যাচাই')">আবেদন →</button>
+        </article>
+        <article class="service-card">
+          <div class="s-icon">🏡</div>
+          <h3>নামজারি সহায়তা</h3>
+          <p>নামজারির পুরো প্রক্রিয়া সম্পন্ন করে দেওয়া হয়।</p>
+          <button onclick="selectService('নামজারি সহায়তা')">আবেদন →</button>
+        </article>
+        <article class="service-card">
+          <div class="s-icon">🗺️</div>
+          <h3>মৌজা/দাগ তথ্য</h3>
+          <p>মৌজা ম্যাপ, দাগ নম্বর সহ পূর্ণ তথ্য।</p>
+          <button onclick="selectService('মৌজা/দাগ তথ্য')">আবেদন →</button>
+        </article>
+        <article class="service-card">
+          <div class="s-icon">📋</div>
+          <h3>জমির কাগজপত্র</h3>
+          <p>প্রয়োজনীয় সব কাগজ প্রস্তুত করে দেওয়া হয়।</p>
+          <button onclick="selectService('জমির কাগজপত্র')">আবেদন →</button>
+        </article>
+        <article class="service-card">
+          <div class="s-icon">⚖️</div>
+          <h3>ভূমি পরামর্শ</h3>
+          <p>ভূমি সমস্যা নিয়ে বিশেষজ্ঞের পরামর্শ।</p>
+          <button onclick="selectService('ভূমি সমস্যা পরামর্শ')">আবেদন →</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. WHY CHOOSE US ============ -->
+  <section id="why" class="section light">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">কেন আমাদের বেছে নেবেন</p>
+        <h2>আমরা অন্যদের থেকে আলাদা</h2>
+        <p>যে কারণে হাজারো মানুষ আমাদের উপর ভরসা করেন</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">⚡</div>
+          <h3>দ্রুত ডেলিভারি</h3>
+          <p>সাধারণত ২৪-৪৮ ঘণ্টার মধ্যে কাজ সম্পন্ন হয়।</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔒</div>
+          <h3>১০০% নিরাপদ</h3>
+          <p>আপনার তথ্য সম্পূর্ণ গোপন ও সুরক্ষিত থাকে।</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">👨‍💼</div>
+          <h3>অভিজ্ঞ টিম</h3>
+          <p>৫+ বছরের অভিজ্ঞ ভূমি বিশেষজ্ঞ টিম।</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💰</div>
+          <h3>স্বচ্ছ মূল্য</h3>
+          <p>কোনো লুকানো চার্জ নেই। যা বলা, তাই দিতে হয়।</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📞</div>
+          <h3>২৪/৭ সাপোর্ট</h3>
+          <p>WhatsApp-এ যেকোনো সময় যোগাযোগ করতে পারবেন।</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💯</div>
+          <h3>মানি ব্যাক গ্যারান্টি</h3>
+          <p>কাজ পছন্দ না হলে টাকা ফেরত।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. HOW IT WORKS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">কীভাবে কাজ করে</p>
+        <h2>মাত্র ৩ ধাপে সেবা নিন</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">১</div>
+          <h3>আবেদন করুন</h3>
+          <p>ফর্ম পূরণ করে জমা দিন — মাত্র ২ মিনিটে।</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">২</div>
+          <h3>নিশ্চিতকরণ</h3>
+          <p>আমাদের টিম ২ ঘণ্টার মধ্যে WhatsApp/ফোনে যোগাযোগ করবে।</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">৩</div>
+          <h3>সেবা গ্রহণ</h3>
+          <p>২৪-৪৮ ঘণ্টায় সম্পূর্ণ কাজ বুঝে নিন।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. TESTIMONIALS ============ -->
+  <section id="reviews" class="section light">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">কাস্টমার রিভিউ</p>
+        <h2>তারা যা বলছেন</h2>
+        <p>১০০০+ সন্তুষ্ট কাস্টমারের কিছু মত</p>
+      </div>
+
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"আমার জমির খতিয়ান দরকার ছিল জরুরি। মাত্র ১ দিনে পেয়ে গেলাম। সার্ভিস খুব ভালো।"</p>
+          <div class="review-author">
+            <div class="avatar">আ</div>
+            <div>
+              <strong>আব্দুল করিম</strong>
+              <small>ঢাকা</small>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"নামজারি নিয়ে অনেক দিন ধরে ঝামেলায় ছিলাম। এদের মাধ্যমে সহজেই হয়ে গেল।"</p>
+          <div class="review-author">
+            <div class="avatar">র</div>
+            <div>
+              <strong>রহিমা বেগম</strong>
+              <small>চট্টগ্রাম</small>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"খুব বিশ্বস্ত একটি টিম। প্রতিটি ধাপে জানিয়ে রাখে। আবারও নেব ইনশাআল্লাহ।"</p>
+          <div class="review-author">
+            <div class="avatar">ম</div>
+            <div>
+              <strong>মোহাম্মদ আলী</strong>
+              <small>রাজশাহী</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. RECENT SUCCESS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">সাম্প্রতিক কাজ</p>
+        <h2>সম্প্রতি সম্পন্ন কিছু কাজ</h2>
+      </div>
+
+      <div class="success-grid">
+        <div class="success-card">
+          <div class="success-tag">✅ সম্পন্ন</div>
+          <h4>খতিয়ান অনুসন্ধান</h4>
+          <p>ঢাকা, সাভার — ২৪ ঘণ্টায় ডেলিভারি</p>
+          <small>২ দিন আগে</small>
+        </div>
+        <div class="success-card">
+          <div class="success-tag">✅ সম্পন্ন</div>
+          <h4>নামজারি সহায়তা</h4>
+          <p>গাজীপুর — ৩ দিনে সম্পন্ন</p>
+          <small>৫ দিন আগে</small>
+        </div>
+        <div class="success-card">
+          <div class="success-tag">✅ সম্পন্ন</div>
+          <h4>মৌজা তথ্য</h4>
+          <p>নারায়ণগঞ্জ — ১ দিনে ডেলিভারি</p>
+          <small>১ সপ্তাহ আগে</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. REQUEST FORM ============ -->
+  <section id="request" class="section light">
+    <div class="container form-wrap">
+      <div class="section-title">
+        <p class="eyebrow">সেবা আবেদন</p>
+        <h2>এখনই আবেদন করুন</h2>
+        <p>২ মিনিটে ফর্ম পূরণ করুন — আমরা ২ ঘণ্টার মধ্যে যোগাযোগ করব</p>
+      </div>
+
+      <form id="requestForm" class="request-form">
+        <div class="form-row">
+          <label>আপনার নাম *<input id="name" required type="text" placeholder="পূর্ণ নাম"></label>
+          <label>মোবাইল নম্বর *<input id="phone" required type="tel" placeholder="01XXXXXXXXX"></label>
+        </div>
+        <div class="form-row">
+          <label>ই-মেইল<input id="email" type="email" placeholder="example@email.com"></label>
+          <label>সেবা নির্বাচন *
+            <select id="service" required>
+              <option value="">-- সেবা বাছুন --</option>
+              <option>খতিয়ান অনুসন্ধান</option>
+              <option>দলিল যাচাই</option>
+              <option>নামজারি সহায়তা</option>
+              <option>মৌজা/দাগ তথ্য</option>
+              <option>জমির কাগজপত্র</option>
+              <option>ভূমি সমস্যা পরামর্শ</option>
+            </select>
+          </label>
+        </div>
+        <label>বিস্তারিত লিখুন *<textarea id="details" required rows="4" placeholder="আপনার জমির ঠিকানা, সমস্যা বা প্রয়োজন বিস্তারিত লিখুন..."></textarea></label>
+        <label>ডকুমেন্ট আপলোড (ঐচ্ছিক)<input id="document" type="file" accept=".jpg,.jpeg,.png,.pdf"></label>
+        <button class="btn primary full" type="submit">🚀 আবেদন জমা দিন</button>
+        <p id="formMessage" class="form-message"></p>
+        <p class="form-note">🔒 আপনার তথ্য ১০০% নিরাপদ। আমরা কখনো কারো সাথে শেয়ার করি না।</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ STATUS CHECK ============ -->
+  <section id="status" class="section">
+    <div class="container status-box">
+      <div class="section-title">
+        <p class="eyebrow">স্ট্যাটাস চেক</p>
+        <h2>আপনার আবেদনের অবস্থা জানুন</h2>
+        <p>Request ID দিয়ে বর্তমান অবস্থা দেখুন</p>
+      </div>
+      <form id="statusForm" class="status-form">
+        <input id="requestId" required placeholder="যেমন: EVS-123456">
+        <button class="btn primary" type="submit">🔎 চেক করুন</button>
+      </form>
+      <div id="statusResult"></div>
+    </div>
+  </section>
+
+  <!-- ============ 9. FAQ ============ -->
+  <section class="section light">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">সাধারণ জিজ্ঞাসা</p>
+        <h2>প্রশ্ন ও উত্তর</h2>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>সেবা নিতে কী কী লাগে?</summary>
+          <p>শুধু আপনার জমির তথ্য (জেলা, উপজেলা, মৌজা, দাগ নম্বর) এবং আপনার মোবাইল নম্বর। ব্যস!</p>
+        </details>
+        <details>
+          <summary>কত সময় লাগে?</summary>
+          <p>সাধারণত ২৪-৪৮ ঘণ্টা। জরুরি হলে ২৪ ঘণ্টার মধ্যে করা যায়।</p>
+        </details>
+        <details>
+          <summary>পেমেন্ট কীভাবে করব?</summary>
+          <p>bKash, Nagad, Rocket অথবা সরাসরি হাতে হাতে। কাজ শুরু করার আগে ৫০%, শেষে ৫০%।</p>
+        </details>
+        <details>
+          <summary>আমার তথ্য কি নিরাপদ?</summary>
+          <p>১০০%। আমরা কোনো তথ্য কারো সাথে শেয়ার করি না। কাজ শেষে ডেটা ডিলিট করা হয়।</p>
+        </details>
+        <details>
+          <summary>টাকা ফেরত পাব কি?</summary>
+          <p>হ্যাঁ। যদি আমরা কাজ সম্পন্ন করতে না পারি, তাহলে সম্পূর্ণ টাকা ফেরত দেওয়া হয়।</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10. CONTACT ============ -->
+  <section class="section contact-section">
+    <div class="container contact-grid">
+      <div>
+        <p class="eyebrow">যোগাযোগ</p>
+        <h2>আমাদের সাথে কথা বলুন</h2>
+        <p>যেকোনো প্রশ্ন বা সহায়তার জন্য যোগাযোগ করুন। আমরা ২৪/৭ সাপোর্ট দিই।</p>
+
+        <div class="contact-info">
+          <div>📞 <strong>ফোন:</strong> <a href="tel:01XXXXXXXXX">01XXXXXXXXX</a></div>
+          <div>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/8801XXXXXXXXX">01XXXXXXXXX</a></div>
+          <div>✉️ <strong>Email:</strong> support@evumiseba.com</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3>💬 দ্রুত যোগাযোগ</h3>
+        <p>WhatsApp-এ মেসেজ দিন — ৫ মিনিটে উত্তর পাবেন।</p>
+        <a class="btn whatsapp" href="https://wa.me/8801XXXXXXXXX" target="_blank">
+          💬 WhatsApp-এ কথা বলুন
+        </a>
+        <a class="btn primary" href="#request" style="margin-top:10px;display:block;text-align:center;">
+          📝 ফর্ম পূরণ করুন
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container footer">
+    <div>
+      <h4>🏠 E-Vumi Seba</h4>
+      <p>বিশ্বস্ত অনলাইন ভূমি সেবা প্ল্যাটফর্ম</p>
+    </div>
+    <div>
+      <h4>লিংক</h4>
+      <a href="#services">সেবা</a>
+      <a href="#request">আবেদন</a>
+      <a href="#status">স্ট্যাটাস</a>
+    </div>
+    <div>
+      <h4>যোগাযোগ</h4>
+      <p>📞 01332052506</p>
+      <p>✉️ support@evumiseba.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span id="year"></span> E-Vumi Seba. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
