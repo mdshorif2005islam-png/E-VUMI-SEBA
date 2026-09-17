@@ -12,6 +12,36 @@
   <div class="container nav">
     <a href="index.html" class="logo">🏠 E-Vumi <span>Seba</span></a>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="login-modal" id="loginModal">
+  <div class="login-box">
+    <button class="close-login" onclick="closeLogin()">✕</button>
+    <div class="login-brand">
+      <div class="brand-icon">🏠</div>
+      <h2>E-Vumi Seba</h2>
+      <p>ভূমি সেবা হাতের মুঠোয়</p>
+    </div>
+    <div class="login-tabs">
+      <button class="login-tab active" data-tab="signin" onclick="switchLoginTab('signin')">সাইন ইন</button>
+      <button class="login-tab" data-tab="signup" onclick="switchLoginTab('signup')">সাইন আপ</button>
+    </div>
+    <form id="signinForm" class="login-form active">
+      <label>মোবাইল নম্বর<input id="signinPhone" required type="tel" placeholder="01XXXXXXXXX"></label>
+      <label>পাসওয়ার্ড<input id="signinPass" required type="password" placeholder="পাসওয়ার্ড"></label>
+      <button type="submit" class="btn primary full">🔓 সাইন ইন করুন</button>
+      <p class="login-msg" id="signinMsg"></p>
+      <p class="login-hint">অ্যাকাউন্ট নেই? <a href="#" onclick="switchLoginTab('signup');return false;">সাইন আপ করুন</a></p>
+    </form>
+    <form id="signupForm" class="login-form">
+      <label>পূর্ণ নাম<input id="signupName" required type="text" placeholder="আপনার নাম"></label>
+      <label>মোবাইল নম্বর<input id="signupPhone" required type="tel" placeholder="01XXXXXXXXX"></label>
+      <label>ইমেইল (ঐচ্ছিক)<input id="signupEmail" type="email" placeholder="example@email.com"></label>
+      <label>পাসওয়ার্ড<input id="signupPass" required type="password" placeholder="কমপক্ষে ৬ অক্ষর" minlength="6"></label>
+      <button type="submit" class="btn primary full">✅ রেজিস্ট্রেশন করুন</button>
+      <p class="login-msg" id="signupMsg"></p>
+      <p class="login-hint">অ্যাকাউন্ট আছে? <a href="#" onclick="switchLoginTab('signin');return false;">সাইন ইন করুন</a></p>
+    </form>
+    <div class="login-divider"><span>অথবা</span></div>
+    <button class="social-btn" onclick="continueAsGuest()">👤 অতিথি হিসেবে ব্যবহার করুন</button>
     <nav id="navMenu">
       <a href="index.html">হোম</a>
       <a href="services.html">সেবা</a>
