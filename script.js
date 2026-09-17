@@ -1,18 +1,32 @@
-/* ============================================
+/* ============================================================
    E-Vumi Seba - script.js
-   Requests + Questions + Reviews
-   ============================================ */
+   সম্পূর্ণ জাভাস্ক্রিপ্ট ফাইল
+   ============================================================
+   
+   🔧 শুধু নিচের ২টি লাইন পরিবর্তন করুন:
+   ১. API_URL — আপনার Google Apps Script URL
+   ২. WHATSAPP — আপনার WhatsApp নম্বর
+   
+   ============================================================ */
 
-// 🔗 এখানে আপনার নতুন Web App URL বসান ⬇️
-const API_URL =  'https://script.google.com/macros/s/AKfycbwCHU-MjFfQbuAsg8Nx0OblKhh12mGgWtVPtXg66HjkbngYXLkMnt_9Uc2MbH0B9WRKmw/exec';
+/* ⬇️⬇️⬇️ এখানে পরিবর্তন করুন ⬇️⬇️⬇️ */
+
+const API_URL = 'https://script.google.com/macros/s/AKfycbwYVr5xRMf3HSF_OpCNFXjiUyYHshG_zPITNJ9hHDV5TsctVgtlzUnsIeQbhNvgr2b_ww/exec';
+const WHATSAPP = '8801332052506';
+
+/* ⬆️⬆️⬆️ এখানে পরিবর্তন করুন ⬆️⬆️⬆️ */
+
 
 const $ = id => document.getElementById(id);
 
-/* ===== Menu Toggle ===== */
+/* ============================================================
+   1. MENU TOGGLE (মোবাইল মেনু)
+   ============================================================ */
 function toggleMenu(){
   const menu = $("navMenu");
   if(menu) menu.classList.toggle("open");
 }
+
 document.querySelectorAll("nav a").forEach(link=>{
   link.addEventListener("click",()=>{
     const menu = $("navMenu");
@@ -20,7 +34,9 @@ document.querySelectorAll("nav a").forEach(link=>{
   });
 });
 
-/* ===== Active Nav Highlight ===== */
+/* ============================================================
+   2. ACTIVE NAV HIGHLIGHT (ক্লিক করা পেজ হাইলাইট)
+   ============================================================ */
 (function(){
   const path = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('nav a').forEach(a => {
@@ -29,15 +45,15 @@ document.querySelectorAll("nav a").forEach(link=>{
   });
 })();
 
-/* ===== ID Generator ===== */
+/* ============================================================
+   3. HELPERS (সহায়ক ফাংশন)
+   ============================================================ */
 function createRequestId(){
   return "EVS-" + Math.floor(100000 + Math.random()*900000);
 }
 function createId(prefix){
   return prefix + "-" + Math.floor(1000 + Math.random()*9000);
 }
-
-/* ===== Escape HTML ===== */
 function escapeHtml(str){
   if(!str) return '';
   return String(str)
@@ -47,15 +63,13 @@ function escapeHtml(str){
     .replace(/"/g,'&quot;')
     .replace(/'/g,'&#39;');
 }
-
-/* ===== Bengali Numbers ===== */
 function toBn(num){
   const bn = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
   return String(num).replace(/[0-9]/g, d => bn[d]);
 }
 
 /* ============================================================
-   REQUEST FORM (service.html)
+   4. REQUEST FORM (service.html)
    ============================================================ */
 const requestForm = $("requestForm");
 if(requestForm){
@@ -116,7 +130,7 @@ if(requestForm){
 }
 
 /* ============================================================
-   STATUS CHECK (status.html)
+   5. STATUS CHECK (status.html)
    ============================================================ */
 const statusForm = $("statusForm");
 if(statusForm){
@@ -170,7 +184,7 @@ if(statusForm){
 }
 
 /* ============================================================
-   QUESTIONS (questions.html)
+   6. QUESTIONS (questions.html)
    ============================================================ */
 const questionForm = $("questionForm");
 if(questionForm){
@@ -201,11 +215,10 @@ if(questionForm){
         body: JSON.stringify(data)
       });
 
-      $("qMessage").textContent = "✅ আপনার প্রশ্ন পাঠানো হয়েছে! শীঘ্রই উত্তর পাবেন।";
+      $("qMessage").textContent = "✅ আপনার প্রশ্ন পাঠানো হয়েছে!";
       $("qMessage").style.color = "#087f5b";
       questionForm.reset();
 
-      // details বন্ধ করুন
       const ab = $("askBox");
       if(ab) ab.open = false;
 
@@ -260,12 +273,12 @@ async function loadQuestions(){
         </div>`;
     }).join('');
   } catch (err) {
-    list.innerHTML = '<p class="loading-text" style="color:#c92a2a;">❌ লোড করা যায়নি। আবার চেষ্টা করুন।</p>';
+    list.innerHTML = '<p class="loading-text" style="color:#c92a2a;">❌ লোড করা যায়নি।</p>';
   }
 }
 
 /* ============================================================
-   REVIEWS (reviews.html)
+   7. REVIEWS (reviews.html)
    ============================================================ */
 let selectedRating = 5;
 const starInput = $("starInput");
@@ -323,7 +336,7 @@ if(reviewForm){
         body: JSON.stringify(data)
       });
 
-      $("rMessage").textContent = "✅ আপনার রিভিউ পাঠানো হয়েছে! ধন্যবাদ।";
+      $("rMessage").textContent = "✅ আপনার রিভিউ পাঠানো হয়েছে!";
       $("rMessage").style.color = "#087f5b";
       reviewForm.reset();
       if(starInput){
@@ -332,7 +345,6 @@ if(reviewForm){
         if($("rRating")) $("rRating").value = 5;
       }
 
-      // details বন্ধ করুন
       const rb = $("addReviewBox");
       if(rb) rb.open = false;
 
@@ -371,17 +383,14 @@ async function loadReviews(){
     const reversed = [...data].reverse();
     if($("rCount")) $("rCount").textContent = reversed.length;
 
-    // Average
     const sum = data.reduce((a,b) => a + (parseFloat(b.Rating) || 0), 0);
     const avg = (sum / data.length).toFixed(1);
     if($("avgRating")) $("avgRating").textContent = toBn(avg);
     if($("totalReviews")) $("totalReviews").textContent = toBn(data.length);
 
-    // Stars
     const rounded = Math.round(avg);
     if($("avgStars")) $("avgStars").textContent = '⭐'.repeat(rounded) + '☆'.repeat(5-rounded);
 
-    // Bars
     updateRatingBars(data);
 
     list.innerHTML = reversed.map(r => {
@@ -432,6 +441,228 @@ function updateRatingBars(data){
   }).join('');
 }
 
-/* ===== Year in Footer ===== */
+/* ============================================================
+   8. LOGIN SYSTEM
+   ============================================================ */
+function openLogin(){
+  const modal = $("loginModal");
+  if(modal){
+    modal.classList.add("show");
+    document.body.style.overflow = "hidden";
+  }
+}
+function closeLogin(){
+  const modal = $("loginModal");
+  if(modal){
+    modal.classList.remove("show");
+    document.body.style.overflow = "";
+  }
+}
+
+const loginModal = $("loginModal");
+if(loginModal){
+  loginModal.addEventListener("click", (e) => {
+    if(e.target.id === "loginModal") closeLogin();
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  if(e.key === "Escape") closeLogin();
+});
+
+function switchLoginTab(tab){
+  document.querySelectorAll(".login-tab").forEach(t => {
+    t.classList.toggle("active", t.dataset.tab === tab);
+  });
+  document.querySelectorAll(".login-form").forEach(f => {
+    f.classList.toggle("active", f.id === tab + "Form");
+  });
+}
+
+/* SIGN UP */
+const signupForm = $("signupForm");
+if(signupForm){
+  signupForm.addEventListener("submit", async function(e){
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    const orig = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '⏳ তৈরি হচ্ছে...';
+
+    const user = {
+      type: 'user',
+      id: 'U-' + Date.now(),
+      name: $("signupName").value.trim(),
+      phone: $("signupPhone").value.trim(),
+      email: $("signupEmail") ? $("signupEmail").value.trim() : "",
+      password: $("signupPass").value,
+      date: new Date().toLocaleString("bn-BD")
+    };
+
+    try {
+      await fetch(API_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(user)
+      });
+
+      const users = JSON.parse(localStorage.getItem("evumiUsers") || "[]");
+      users.push(user);
+      localStorage.setItem("evumiUsers", JSON.stringify(users));
+      localStorage.setItem("evumiCurrentUser", JSON.stringify(user));
+
+      $("signupMsg").textContent = "✅ সফল!";
+      $("signupMsg").className = "login-msg success";
+      signupForm.reset();
+
+      setTimeout(() => {
+        closeLogin();
+        updateLoginUI(user);
+        showToast("স্বাগতম, " + user.name + "! 🎉");
+      }, 1000);
+
+    } catch (err) {
+      $("signupMsg").textContent = "❌ সমস্যা হয়েছে।";
+      $("signupMsg").className = "login-msg error";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = orig;
+    }
+  });
+}
+
+/* SIGN IN */
+const signinForm = $("signinForm");
+if(signinForm){
+  signinForm.addEventListener("submit", async function(e){
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    const orig = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '⏳ চেক করা হচ্ছে...';
+
+    const phone = $("signinPhone").value.trim();
+    const pass = $("signinPass").value;
+
+    try {
+      const users = JSON.parse(localStorage.getItem("evumiUsers") || "[]");
+      let found = users.find(u => u.phone === phone && u.password === pass);
+
+      if(!found){
+        try {
+          const res = await fetch(API_URL + '?action=users');
+          const remoteUsers = await res.json();
+          if(Array.isArray(remoteUsers)){
+            const r = remoteUsers.find(u =>
+              String(u.Phone) === phone && String(u.Password) === pass
+            );
+            if(r){
+              found = { id: r.ID, name: r.Name, phone: r.Phone, email: r.Email };
+            }
+          }
+        } catch(e){}
+      }
+
+      if(found){
+        localStorage.setItem("evumiCurrentUser", JSON.stringify(found));
+        $("signinMsg").textContent = "✅ সফল লগইন!";
+        $("signinMsg").className = "login-msg success";
+
+        setTimeout(() => {
+          closeLogin();
+          updateLoginUI(found);
+          showToast("স্বাগতম, " + found.name + "! 👋");
+        }, 700);
+      } else {
+        $("signinMsg").textContent = "❌ ভুল মোবাইল বা পাসওয়ার্ড";
+        $("signinMsg").className = "login-msg error";
+      }
+
+    } catch (err) {
+      $("signinMsg").textContent = "❌ সমস্যা হয়েছে।";
+      $("signinMsg").className = "login-msg error";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = orig;
+    }
+  });
+}
+
+/* WhatsApp Alternative */
+function continueWithWhatsApp(){
+  window.open("https://wa.me/" + WHATSAPP + "?text=আমি E-Vumi Seba-তে লগইন করতে চাই", "_blank");
+}
+
+/* Continue as Guest */
+function continueAsGuest(){
+  closeLogin();
+  showToast("অতিথি হিসেবে ব্যবহার করছেন 👤");
+}
+
+/* Update Login UI */
+function updateLoginUI(user){
+  const nav = $("navMenu");
+  if(!nav) return;
+
+  const oldBtn = nav.querySelector(".login-btn, .user-menu");
+  if(oldBtn) oldBtn.remove();
+
+  const userBtn = document.createElement("div");
+  userBtn.className = "user-menu";
+  userBtn.innerHTML = `
+    <button class="user-btn" onclick="toggleUserMenu()">
+      👤 ${escapeHtml(user.name.split(" ")[0])}
+    </button>
+    <div class="user-dropdown" id="userDropdown">
+      <a href="service.html">📝 নতুন আবেদন</a>
+      <a href="status.html">🔎 স্ট্যাটাস</a>
+      <a href="#" onclick="logout(event)">🚪 লগআউট</a>
+    </div>
+  `;
+  nav.appendChild(userBtn);
+}
+
+function toggleUserMenu(){
+  const dd = $("userDropdown");
+  if(dd) dd.classList.toggle("show");
+}
+
+document.addEventListener("click", (e) => {
+  const dd = $("userDropdown");
+  if(dd && !e.target.closest(".user-menu")){
+    dd.classList.remove("show");
+  }
+});
+
+function logout(e){
+  if(e) e.preventDefault();
+  localStorage.removeItem("evumiCurrentUser");
+  showToast("লগআউট সম্পন্ন ✅");
+  setTimeout(() => window.location.reload(), 700);
+}
+
+(function(){
+  const user = JSON.parse(localStorage.getItem("evumiCurrentUser") || "null");
+  if(user) updateLoginUI(user);
+})();
+
+/* Toast */
+function showToast(message){
+  const toast = document.createElement("div");
+  toast.className = "evumi-toast";
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.classList.add("show"), 50);
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 400);
+  }, 3000);
+}
+
+/* ============================================================
+   9. YEAR IN FOOTER
+   ============================================================ */
 const yearEl = $("year");
 if(yearEl) yearEl.textContent = new Date().getFullYear();
